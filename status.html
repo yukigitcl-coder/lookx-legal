@@ -74,6 +74,20 @@
   }
   .updated { color: #888; font-size: 13px; margin-bottom: 24px; }
   a { color: #7c3aed; text-decoration: none; }
+  /* DARKFIX: ダークモード時にコンテナを暗くして文字を読めるようにする */
+  @media (prefers-color-scheme: dark) {
+    .container { background: #1a1a1a; }
+    .updated { color: #aaa; }
+    h2 { border-bottom-color: rgba(255,255,255,0.1); }
+  }
+  /* FORCELIGHT: 法的文書は常にライト表示に強制（ダークモードでの可読性問題を回避） */
+  @media (prefers-color-scheme: dark) {
+    body { background: #ffffff !important; color: #1a1a1a !important; }
+    .container { background: #ffffff !important; box-shadow: 0 1px 4px rgba(0,0,0,0.06) !important; }
+    .updated { color: #888 !important; }
+    a { color: #7c3aed !important; }
+    h2 { border-bottom-color: rgba(0,0,0,0.08) !important; }
+  }
 </style>
 </head>
 <body>

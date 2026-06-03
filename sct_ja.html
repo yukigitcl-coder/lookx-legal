@@ -37,6 +37,20 @@
   th, td { text-align: left; padding: 10px 12px; border: 1px solid rgba(0,0,0,0.1); vertical-align: top; }
   th { background: rgba(0,0,0,0.03); width: 38%; font-weight: 600; }
   .muted { color: #777; font-size: 0.9rem; }
+  /* DARKFIX: ダークモード時にコンテナを暗くして文字を読めるようにする */
+  @media (prefers-color-scheme: dark) {
+    .container { background: #1a1a1a; }
+    .updated { color: #aaa; }
+    h2 { border-bottom-color: rgba(255,255,255,0.1); }
+  }
+  /* FORCELIGHT: 法的文書は常にライト表示に強制（ダークモードでの可読性問題を回避） */
+  @media (prefers-color-scheme: dark) {
+    body { background: #ffffff !important; color: #1a1a1a !important; }
+    .container { background: #ffffff !important; box-shadow: 0 1px 4px rgba(0,0,0,0.06) !important; }
+    .updated { color: #888 !important; }
+    a { color: #7c3aed !important; }
+    h2 { border-bottom-color: rgba(0,0,0,0.08) !important; }
+  }
 </style>
 </head>
 <body>
